@@ -1,5 +1,5 @@
 
-
+gsap.registerPlugin(ScrollTrigger)
 const starting = gsap.timeline();
 
 // starting
@@ -8,7 +8,45 @@ const starting = gsap.timeline();
 //   .to(".hero-image", { opacity: 1 })
 //   .to(".social-media",{xPercent:-120},"<");
 
-const bg = document.querySelector(".hero-image");
+const tl = gsap.timeline();
+const tl2 =gsap.timeline();
+tl.to(".svg__container",{yPercent:-100}).from(".about",{yPercent:100})
+tl2
+  .from(".green h1", {
+    xPercent: 100,
+    opacity: 0,
+  })
+  .to(".green h1", {
+    xPercent: -100,
+    opacity: 0,
+  })
+  .from(".red", { xPercent: 100 })
+  .from(".offwhite", { xPercent: 100 })
+  .from(".pink", { yPercent: -100 });
+
+ScrollTrigger.create({
+    animation:tl,
+    trigger:"#loading-model",
+    start:"top top",
+    end:"+=1000",
+    scrub:true,
+    pin:true,
+    anticipatePin:1,
+    snap:1
+})
+ScrollTrigger.create({
+    animation:tl2,
+    trigger:".section-2",
+    start:"top top",
+    end:"+=4000",
+    scrub:true,
+    pin:true,
+    anticipatePin:1,
+ 
+})
+
+
+const section1 = document.querySelector("#loading-model");
 const about = document.querySelector(".about")
 // bg.addEventListener("mousemove",(e)=>{
 //     console.log(`${e.pageX / 100}px ${e.pageY / 100}px`);
@@ -21,13 +59,12 @@ let options = {
 };
 
 let observer = new IntersectionObserver((e)=>{
-   
-    // console.log();
-    if (e[0].isIntersecting) {
-        bg.classList.add("filter")
-    }else{
-        bg.classList.remove("filter")
 
+    console.log("asd");
+    if (e[0].isIntersecting) {
+        section1.classList.add("filter")
+    }else{
+        section1.classList.remove("filter")
     }
 }, options);
 observer.observe(about)
