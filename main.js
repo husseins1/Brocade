@@ -15,16 +15,19 @@ tl2
   .from(".green h1", {
     xPercent: 100,
     opacity: 0,
+    display:"none"
   })
   .to(".green h1", {
     xPercent: -100,
     opacity: 0,
+    display:"none"
   })
   .from(
     ".green .images-wrapper",
     {
       xPercent: 100,
       opacity: 0,
+      display:"none"
     },
     "<-.5"
   )
@@ -33,6 +36,7 @@ tl2
     {
       xPercent: -100,
       opacity: 0,
+      display:"none"
     },
     "<.5"
   )
@@ -40,16 +44,19 @@ tl2
   .from(".red h1", {
     xPercent: 100,
     opacity: 0,
+    display:"none"
   })
   .to(".red h1", {
     xPercent: -100,
     opacity: 0,
+    display:"none"
   })
   .from(
     ".red .images-wrapper",
     {
       xPercent: -100,
       opacity: 0,
+      display:"none"
     },
     "<-.5"
   )
@@ -58,6 +65,7 @@ tl2
     {
       xPercent: 100,
       opacity: 0,
+      display:"none"
     },
     "<.5"
   )
@@ -65,16 +73,19 @@ tl2
   .from(".pink h1", {
     xPercent: 100,
     opacity: 0,
+    display:"none"
   })
   .to(".pink h1", {
     xPercent: -100,
     opacity: 0,
+    display:"none"
   })
   .from(
     ".pink .images-wrapper",
     {
       yPercent: 100,
       opacity: 0,
+      display:"none"
     },
     "<-.5"
   )
@@ -83,6 +94,7 @@ tl2
     {
       yPercent: -100,
       opacity: 0,
+      display:"none"
     },
     "<.5"
   );
@@ -105,6 +117,7 @@ ScrollTrigger.create({
     scrub:true,
     pin:true,
     anticipatePin:1,
+    
  
 })
 
@@ -131,3 +144,81 @@ let observer = new IntersectionObserver((e)=>{
     }
 }, options);
 observer.observe(about)
+
+let timeline2 = gsap.timeline();
+timeline2.to(".top .image-container", {
+  height: 0,
+})
+ScrollTrigger.create({
+  animation: timeline2,
+  trigger: ".second-section",
+  start: "center center",
+  end: "+=1000",
+  scrub: true,
+  pin: true,
+  anticipatePin: 1,
+});
+
+let timeline3 = gsap.timeline();
+timeline3
+  .to(".section_3_01",  {
+    y: -250,
+    
+  })
+  .to(
+    ".section_3_02",
+    
+    {
+      y: -200,
+      
+    },
+    "<"
+  )
+  .to(
+    ".section_3_03",
+    
+    {
+      y: -100,
+      
+    },
+    "<"
+  )
+  .to(
+    ".section_3_04",
+    
+    {
+      y: 0,
+      
+    },
+    "<"
+  )
+  .to(
+    ".section_3_05",
+    
+    {
+      y: 150,
+      
+    },
+    "<"
+  )
+  .to(
+    ".section_3_06",
+    
+    {
+      y: 250,
+      
+    },
+    "<"
+  );
+
+ScrollTrigger.create({
+  animation: timeline3,
+  trigger: ".third-section",
+  start: "center center",
+  end: "+=1000",
+  scrub: true,
+  pin: true,
+  anticipatePin: 1,
+});
+
+
