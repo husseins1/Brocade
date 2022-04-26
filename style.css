@@ -166,3 +166,9 @@ scroll-snap-type: y mandatory;
     background:#FAD9E6;
     color:#E4AEC5;
 }
+.images-warpper{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+}

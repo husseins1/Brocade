@@ -20,9 +20,72 @@ tl2
     xPercent: -100,
     opacity: 0,
   })
+  .from(
+    ".green .images-wrapper",
+    {
+      xPercent: 100,
+      opacity: 0,
+    },
+    "<-.5"
+  )
+  .to(
+    ".green .images-wrapper",
+    {
+      xPercent: -100,
+      opacity: 0,
+    },
+    "<.5"
+  )
   .from(".red", { xPercent: 100 })
-  .from(".offwhite", { xPercent: 100 })
-  .from(".pink", { yPercent: -100 });
+  .from(".red h1", {
+    xPercent: 100,
+    opacity: 0,
+  })
+  .to(".red h1", {
+    xPercent: -100,
+    opacity: 0,
+  })
+  .from(
+    ".red .images-wrapper",
+    {
+      xPercent: -100,
+      opacity: 0,
+    },
+    "<-.5"
+  )
+  .to(
+    ".red .images-wrapper",
+    {
+      xPercent: 100,
+      opacity: 0,
+    },
+    "<.5"
+  )
+  .from(".pink", { yPercent: -100 })
+  .from(".pink h1", {
+    xPercent: 100,
+    opacity: 0,
+  })
+  .to(".pink h1", {
+    xPercent: -100,
+    opacity: 0,
+  })
+  .from(
+    ".pink .images-wrapper",
+    {
+      yPercent: 100,
+      opacity: 0,
+    },
+    "<-.5"
+  )
+  .to(
+    ".pink .images-wrapper",
+    {
+      yPercent: -100,
+      opacity: 0,
+    },
+    "<.5"
+  );
 
 ScrollTrigger.create({
     animation:tl,
