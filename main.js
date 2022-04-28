@@ -2,11 +2,14 @@
 gsap.registerPlugin(ScrollTrigger)
 const starting = gsap.timeline();
 
-// starting
-//   .to(".logo", { opacity: 1, duration: 1,ease:"ease" })
-//   .to(".logo__container", { width: 300 })
-//   .to(".hero-image", { opacity: 1 })
-//   .to(".social-media",{xPercent:-120},"<");
+starting
+.to(".logo__container", { opacity: 1, duration: 1,ease:"slow" })
+
+  .to(".logo__container", { width: "30%" })
+  .to(".layer",{opacity:0})
+  .from(".scroll",{opacity:0})
+  .to(".hero-image", { opacity: 1 })
+  .to(".social-media",{xPercent:-120},"<");
 
 const tl = gsap.timeline();
 const tl2 =gsap.timeline();
@@ -123,11 +126,12 @@ ScrollTrigger.create({
 
 
 const section1 = document.querySelector("#loading-model");
-const about = document.querySelector(".about")
-// bg.addEventListener("mousemove",(e)=>{
-//     console.log(`${e.pageX / 100}px ${e.pageY / 100}px`);
-//     bg.style.objectPosition = `${e.pageX / 50}px ${e.pageY / 50}px`;
-// })
+const about = document.querySelector(".about");
+
+section1.addEventListener("mousemove",(e)=>{
+    console.log(`${e.pageX / 100}px ${e.pageY / 100}px`);
+    section1.style.backgroundPosition = `${e.pageX / 50}px ${e.pageY / 50}px`;
+})
 let options = {
   root: null,
   rootMargin: "0px",
@@ -136,7 +140,6 @@ let options = {
 
 let observer = new IntersectionObserver((e)=>{
 
-    console.log("asd");
     if (e[0].isIntersecting) {
         section1.classList.add("filter")
     }else{
@@ -144,6 +147,8 @@ let observer = new IntersectionObserver((e)=>{
     }
 }, options);
 observer.observe(about)
+const bgTimeline = gsap.timeline();
+
 
 let timeline2 = gsap.timeline();
 timeline2.to(".top .image-container", {
@@ -220,5 +225,12 @@ ScrollTrigger.create({
   pin: true,
   anticipatePin: 1,
 });
+
+
+// time
+
+const year = document.querySelector(".year");
+const date = new Date().getFullYear()
+year.textContent = date;
 
 
